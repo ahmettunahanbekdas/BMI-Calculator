@@ -42,6 +42,11 @@ class ViewController: UIViewController {
         
         let bmı = weight / pow(Double(height), 2)
         print(bmı)
+        
+        let secondCV = SecondViewController()
+        
+        self.present(secondCV, animated: true )
+        
     }
     
     
