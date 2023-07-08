@@ -1,13 +1,15 @@
-
+// UIKit kütüphanesini ekledik
 import UIKit
 
-class CalculateViewController: UIViewController {
+// CalculateViewController adında bir sınıf oluşturduk ve bu sınıf UIViewController dan kalıtım alıyor
+    class CalculateViewController: UIViewController {
+// calculatorBrain adında bir nesne oluşturduk ve CalculatorBrain structımızı tanımladık
+    var calculatorBrain = CalculatorBrain()
     
-    var bmiValue = "0.0"
-    
+    // UILabel, UIKit framework'ünde yer alan bir sınıftır.
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
-    
+    // UISlider, UIKit framework'ünde yer alan bir sınıftır. 
     @IBOutlet weak var heightSlider: UISlider!
     @IBOutlet weak var weightSlider: UISlider!
     
@@ -29,19 +31,20 @@ class CalculateViewController: UIViewController {
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         let height = heightSlider.value
-        let weight = Double(weightSlider.value)
+        let weight = weightSlider.value
         
-        let bmi = weight / pow(Double(height), 2)
-        bmiValue = String(format: "%.1f", bmi)
+// CalculatorBrain() structımızı tanımladığımıza göre artık hesaplama işlemini orada yapacağız fakar girdileri buradan alıcağız
+        calculatorBrain.calculateBMI(weight: weight, height: height)
+        
         
         self.performSegue(withIdentifier: "goToResult", sender: self)
-
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult" {
             let destinationVC = segue.destination as! ResultViewController
-            destinationVC.bmiValue = bmiValue
+// diğer ekrana gönderilicek olan BMI değerini de artık CalculatorBrain dene alacğız
+            destinationVC.bmiValue = calculatorBrain.getBmiValue()
             
         }
     }
