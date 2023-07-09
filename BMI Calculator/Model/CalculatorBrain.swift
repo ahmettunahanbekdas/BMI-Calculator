@@ -8,26 +8,21 @@
 
 import UIKit
 
-
 struct CalculatorBrain{
     
     var bmi: BMI?
 
     func getBmiValue() -> String{
-        
         let bmiDecimal = String(format: "%.1f", bmi?.value ?? "0.0")
             return bmiDecimal
     }
-    
-    
     func getAdvice() -> String{
         return bmi?.advice ?? "No Advice"
     }
     func getColor() -> UIColor{
         return bmi?.color ?? UIColor.black
     }
-    
-    
+// 1. CalculateBMI methodu yazılır ve CalculateVC sayfasında çağrılarak BMI değeri hesaplanır
     mutating func calculateBMI (weight: Float, height: Float){
         let BMIValue = weight / (height * height)
         if BMIValue < 18.5 {
@@ -37,8 +32,5 @@ struct CalculatorBrain{
         }else{
             bmi = BMI(value: BMIValue, advice: "Eat less pies", color: UIColor.red)
          }
-        
-
-       
     }
 }

@@ -5,27 +5,23 @@ import UIKit
     class CalculateViewController: UIViewController {
 // calculatorBrain adında bir nesne oluşturduk ve CalculatorBrain structımızı tanımladık
     var calculatorBrain = CalculatorBrain()
-    
-    // UILabel, UIKit framework'ünde yer alan bir sınıftır.
+// UILabel, UIKit framework'ünde yer alan bir sınıftır.
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
-    // UISlider, UIKit framework'ünde yer alan bir sınıftır. 
+// UISlider, UIKit framework'ünde yer alan bir sınıftır.
     @IBOutlet weak var heightSlider: UISlider!
     @IBOutlet weak var weightSlider: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            
-        
-            
     }
-    
+// UISliderdan gelen value değerini alır formatını değiştererek bu değeri heighLabel a yazar
     @IBAction func heightValue(_ sender: UISlider) {
         let heightValue = sender.value
         let doubleHeight = String(format: "%.2f", heightValue)
         heightLabel.text = "\(doubleHeight)m"
     }
-    
+// UISliderdan gelen değeri alır formatını değiştirerek bu değeri weigtLabel a yazar
     @IBAction func weightValue(_ sender: UISlider) {
         let weightValue = sender.value
         let doubleWeight = String(format: "%.0f", weightValue)
@@ -36,10 +32,9 @@ import UIKit
         let height = heightSlider.value
         let weight = weightSlider.value
         
-// CalculatorBrain() structımızı tanımladığımıza göre artık hesaplama işlemini orada yapacağız fakar girdileri buradan alıcağız
+// 1. CalculatorBrain() structımızı tanımladığımıza göre artık hesaplama işlemini orada yapacağız fakat girdileri buradan alıcağız
         calculatorBrain.calculateBMI(weight: weight, height: height)
-        
-        
+
         self.performSegue(withIdentifier: "goToResult", sender: self)
     }
     
