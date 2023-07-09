@@ -15,6 +15,9 @@ import UIKit
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            
+        
+            
     }
     
     @IBAction func heightValue(_ sender: UISlider) {
@@ -45,7 +48,8 @@ import UIKit
             let destinationVC = segue.destination as! ResultViewController
 // diğer ekrana gönderilicek olan BMI değerini de artık CalculatorBrain dene alacğız
             destinationVC.bmiValue = calculatorBrain.getBmiValue()
-            
+            destinationVC.advice = calculatorBrain.getAdvice()
+            destinationVC.color = calculatorBrain.getColor()
         }
     }
     
