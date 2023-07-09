@@ -1,4 +1,4 @@
-# BMICalculator App Sample
+# BMI Calculator App Sample
 
 I completed this project with Angela Yu's bootcamp training. In this project, user inputs weight and height values using sliders. Then
 , on another screen, these values are displayed, and the background color of the screen changes based on the magnitude of the value. 
