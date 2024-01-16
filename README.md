@@ -5,7 +5,7 @@ I completed this project with Angela Yu's bootcamp training. In this project, us
 Additionally, a recommendation is given to the user.
 By clicking a button on this screen, the user can go back to the previous screen and perform the value calculation again.
 
-## Features
+# Features
 
 - UIKit
 - MVC Design Pattern
